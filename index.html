@@ -4,6 +4,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Project Arrhythmia Theme Editor</title>
 <link rel="stylesheet" href="css/pa.css">
+<!--embed time-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta content="Project Arrhythmia Theme Editor" property="og:title" />
+<meta content="An online tool for creating Project Arrhythmia themes!" property="og:description" />
+<meta content="https://destroyerxl44.github.io/pa-theme-editor" property="og:url" />
+<!--<meta content="assets/favicon.ico" property="og:image" />-->
 <!--HELP-->
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
@@ -12,12 +18,13 @@
 <!--woooooooooooooooooooooo yeahhhhhhhhhhhhh!!!!!!!!!!!!!!-->
 <body>
 <h1>PA THEME EDITOR</h1>
-<p>Currently, the theme editor only supports creating themes. Editing existing themes is planned :)</p>
+<p>Currently, the theme editor only supports creating themes. Editing existing themes, viewing prefabs, and a proper theme preview is planned :)</p>
 <!--load a theme
 <input type="file"
        id=";lstupload" name="lstupload" accept=".lst">-->
 <p style="text-align:justify;">
-	<!---help i really need to find a better way to do this besides constantly copying and pasting help help he-->
+<!---THIS CODE IS AWFUL AND ABHORRENT AND BROKE INTO MY HOUSE AND KILLED ME-->
+<!--note: remake this to not use 20something <input>s and also make it so that the values are actually stored somewhere besides in the html-->
 <h3>Base</h3>
 <input class="ThemeColor" type="color" onchange="UpdateColors()" id="col1picker" value="#94D8DB"></input>		<span id="col1text">94D8DB</span><br>
 <input class="ThemeColor" type="color" onchange="UpdateColors()" id="col2picker" value="#212121"></input>		<span id="col2text">212121</span><br>
@@ -52,12 +59,12 @@
 <script>
 	/* all of the code here is probably really bad i'm sorry lmao */
 function UpdateColors(){
-	/* holy woag its a loop! that makes things easy and lets us automatically get all 24 themes without manually getting them */
+	/* Using the magic of iteration we can go through each theme input and update their respective values on the page*/
 	for (let i = 1; i < 25; i++) {
 		var col = document.getElementById("col" +i +"picker").value;
 		var col = col.replace("#","")
 		if (col == document.getElementById("col" +i + "text").innerHTML){
-			console.log("Color " + i +" not changed.");
+			/* console.log("Color " + i +" not changed.");*/
 		} else {
 			console.log("Color " + i +" set to " + col);
 			document.getElementById("col" +i + "text").innerHTML = col;
@@ -74,9 +81,9 @@ function CreateTheme(){
 	}
 	/*put it together*/
 	var theme = {
-		/*theme ids are actually just random numbers in-game, so let's do that here*/
+		/*In Project Arrhythmia, theme IDS are actually just random numbers with no significance whatsoever*/
 	"id":Math.round(Math.random()*1000000),
-		/* now here's the fun part: the input*/
+		/* Now for the fun part of assembling the file. This could be done better but it isnt as bad as before at least*/
 	"name":themename,
 	"gui":(document.getElementById("col1text").innerHTML),
 	"bg":(document.getElementById("col2text").innerHTML),
@@ -84,7 +91,7 @@ function CreateTheme(){
 	"objs":[(document.getElementById("col7text").innerHTML),(document.getElementById("col8text").innerHTML),(document.getElementById("col9text").innerHTML),(document.getElementById("col10text").innerHTML),(document.getElementById("col11text").innerHTML),(document.getElementById("col12text").innerHTML),(document.getElementById("col13text").innerHTML),(document.getElementById("col14text").innerHTML),(document.getElementById("col15text").innerHTML)],
 	"bgs":[(document.getElementById("col16text").innerHTML),(document.getElementById("col17text").innerHTML),(document.getElementById("col18text").innerHTML),(document.getElementById("col19text").innerHTML),(document.getElementById("col20text").innerHTML),(document.getElementById("col21text").innerHTML),(document.getElementById("col22text").innerHTML),(document.getElementById("col23text").innerHTML),(document.getElementById("col24text").innerHTML)]};
 	var themeJSON = JSON.stringify(theme);
-	/*put it on your computeR*/
+	/*Now download it*/
 	download(themename + ".lst", themeJSON)
 } 
 function download(filename, text){

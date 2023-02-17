@@ -1,0 +1,57 @@
+/*Give the background the PA BG color.*/
+body {
+background-color:#212121;
+color:#E0E0E0;
+font-family:Inconsolata;
+}
+p {
+margin-left:30px;
+}
+
+.mpInfo{
+font-size:20px;
+display:none;
+padding-left:15px;
+}
+/*mainpage info*/
+.mpInfo{
+    transition: opacity 0.5s,
+        opacity:0;
+}
+/*line boreders*/
+.PABorder{
+border-top: 3px dashed #ffffff;
+color: rgba(0,0,0,0)
+}
+
+/*headings*/
+h3{
+    font-weight:normal;
+}
+/*INPUT*/
+/*Make any buttons look like PA ingame buttons.*/
+/*First up, stuff to apply to all buttons*/
+button{
+padding-top:5px;
+padding-bottom:5px;
+padding-right:20%;
+border: none;
+font-size:20px;
+text-transform:uppercase;
+}
+/*Now make it change color.*/
+button {
+    background-color:#212121;
+    color:white;
+}
+button:hover{
+        background:#ffffff;
+        color:black;
+}
+/*Make color input look square.*/
+.ThemeColor{
+    width:25px;
+    height:25px;
+    border:none;
+    right:5px;
+}

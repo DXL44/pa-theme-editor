@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Arrhythmia Theme Editor</title>
+<link rel="stylesheet" href="css/pa.css">
+<!--HELP-->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+</style>
+</head>
+<!--woooooooooooooooooooooo yeahhhhhhhhhhhhh!!!!!!!!!!!!!!-->
+<body>
+<h1>PA THEME EDITOR</h1>
+<p>Currently, the theme editor only supports creating themes. Editing existing themes is planned :)</p>
+<!--load a theme
+<input type="file"
+       id=";lstupload" name="lstupload" accept=".lst">-->
+<p style="text-align:justify;">
+	<!---help i really need to find a better way to do this besides constantly copying and pasting help help he-->
+<h3>Base</h3>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col1picker" value="#94D8DB"></input>		<span id="col1text">94D8DB</span><br>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col2picker" value="#212121"></input>		<span id="col2text">212121</span><br>
+<h3>Players</h3>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col3picker" value="#E57373"></input>		<span id="col3text">E57373</span><br>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col4picker" value="#64B5F6"></input>		<span id="col4text">64B5F6</span><br>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col5picker" value="#81C784" ></input>		<span id="col5text">81C784</span><br>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col6picker" value="#FFB74D"></input>		<span id="col6text">FFB74D</span><br>
+<h3>Objects</h3>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col7picker" value="#C0ACE1"></input>		<span id="col7text">C0ACE1</span><br>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col8picker" value="#F17BB8"></input>		<span id="col8text">F17BB8</span><br>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col9picker" value="#2F426D"></input>		<span id="col9text">2F426D</span><br>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col10picker" value="#1B1B1C"></input>		<span id="col10text">1B1B1C</span><br>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col11picker" value="#EFEBEF"></input>		<span id="col11text">EFEBEF</span><br>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col12picker" value="#EFEBEF"></input>		<span id="col12text">EFEBEF</span><br>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col13picker" value="#EFEBEF"></input>		<span id="col13text">EFEBEF</span><br>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col14picker" value="#EFEBEF"></input>		<span id="col14text">EFEBEF</span><br>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col15picker" value="#EFEBEF"></input>		<span id="col15text">EFEBEF</span><br>
+<h3>Background Objects</h3>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col16picker" value="#94D8DB"></input>		<span id="col16text">94D8DB</span><br>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col17picker" value="#E57373"></input>		<span id="col17text">D8FFE0</span><br>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col18picker" value="#D8FFE0"></input>		<span id="col18text">E0FFD5</span><br>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col19picker" value="#F1FFC4"></input>		<span id="col19text">F1FFC4</span><br>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col20picker" value="#FEFEC0"></input>		<span id="col20text">FEFEC0</span><br>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col21picker" value="#F2C7B7"></input>		<span id="col21text">F2C7B7</span><br>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col22picker" value="#F2C7B7"></input>		<span id="col22text">F2C7B7</span><br>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col23picker" value="#F2C7B7"></input>		<span id="col23text">F2C7B7</span><br>
+<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col24picker" value="#F2C7B7"></input>		<span id="col24text">F2C7B7</span><br>
+<button onclick="CreateTheme()">DOWNLOAD THEME</button><br>(Put it in the Themes folder and reload the level editor to use it!)
+</p>
+<p id="ThemeNotice"></p>
+<script>
+	/* all of the code here is probably really bad i'm sorry lmao */
+function UpdateColors(){
+	/* holy woag its a loop! that makes things easy and lets us automatically get all 24 themes without manually getting them */
+	for (let i = 1; i < 25; i++) {
+		var col = document.getElementById("col" +i +"picker").value;
+		var col = col.replace("#","")
+		if (col == document.getElementById("col" +i + "text").innerHTML){
+			console.log("Color " + i +" not changed.");
+		} else {
+			console.log("Color " + i +" set to " + col);
+			document.getElementById("col" +i + "text").innerHTML = col;
+		}
+	}
+}
+function CreateTheme(){
+	/*Name the theme*/
+	let text;
+  	let themename = prompt("Name your theme:",);
+	  if (themename == null || themename == "") {
+		console.log("Invalid theme name - cancelled");
+		return
+	}
+	/*put it together*/
+	var theme = {
+		/*theme ids are actually just random numbers in-game, so let's do that here*/
+	"id":Math.round(Math.random()*1000000),
+		/* now here's the fun part: the input*/
+	"name":themename,
+	"gui":(document.getElementById("col1text").innerHTML),
+	"bg":(document.getElementById("col2text").innerHTML),
+	"players":[(document.getElementById("col3text").innerHTML),(document.getElementById("col4text").innerHTML),(document.getElementById("col5text").innerHTML),(document.getElementById("col6text").innerHTML)],
+	"objs":[(document.getElementById("col7text").innerHTML),(document.getElementById("col8text").innerHTML),(document.getElementById("col9text").innerHTML),(document.getElementById("col10text").innerHTML),(document.getElementById("col11text").innerHTML),(document.getElementById("col12text").innerHTML),(document.getElementById("col13text").innerHTML),(document.getElementById("col14text").innerHTML),(document.getElementById("col15text").innerHTML)],
+	"bgs":[(document.getElementById("col16text").innerHTML),(document.getElementById("col17text").innerHTML),(document.getElementById("col18text").innerHTML),(document.getElementById("col19text").innerHTML),(document.getElementById("col20text").innerHTML),(document.getElementById("col21text").innerHTML),(document.getElementById("col22text").innerHTML),(document.getElementById("col23text").innerHTML),(document.getElementById("col24text").innerHTML)]};
+	var themeJSON = JSON.stringify(theme);
+	/*put it on your computeR*/
+	download(themename + ".lst", themeJSON)
+} 
+function download(filename, text){
+	var element = document.createElement('a');
+	element.setAttribute('href','data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+	element.setAttribute('download',filename);
+	element.style.display = 'none';
+	document.body.appendChild(element);
+	element.click();
+	document.body.removeChild(element);
+}
+function loadTheme(){
+	var lstfile = document.getElementById('lstupload');
+	console.log(lstfile)
+}
+</script>
+</body>
+</html>

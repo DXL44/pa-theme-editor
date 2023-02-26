@@ -1,5 +1,5 @@
-# pa-theme-editor
-Online theme creator/viewer for theme files in Project Arrhythmia (.lst/.vgt)
+# pa-theme-editor<br>
+https://dxl44.github.io/pa-theme-editor
 # What is this?
 It's an online theme creator/viewer for theme files in Project Arrhythmia (.lst/.vgt)
 

@@ -55,14 +55,26 @@
 <input class="ThemeColor" type="color" onchange="UpdateColors()" id="col24picker" value="#F2C7B7"></input>		<span id="col24text">F2C7B7</span><br>
 <button onclick="CreateTheme()">DOWNLOAD THEME</button><br>(Put it in the Themes folder and reload the level editor to use it!)
 </p>
+<h1>VERY COOL THEME PREVIEW</h1>
+<canvas id="themePreview" witdh="750" height="100"></canvas>
 <p id="ThemeNotice"></p>
 <script>
 	/* all of the code here is probably really bad i'm sorry lmao */
 function UpdateColors(){
+	// ready the canvas
+	var canvas = document.getElementById("themePreview");
+	var ctx = canvas.getContext("2d");
+	
 	/* Using the magic of iteration we can go through each theme input and update their respective values on the page*/
 	for (let i = 1; i < 25; i++) {
 		var col = document.getElementById("col" +i +"picker").value;
-		var col = col.replace("#","")
+		//apply new color
+		ctx.fillStyle = col;
+		// fill rectangle based on iteration
+		console.log("Color " + i + " added at " + (i-1)*25)
+		ctx.fillRect((i-1)*25,0,25,25);
+		//make colors better
+		var col = col.replace("#","")		
 		if (col == document.getElementById("col" +i + "text").innerHTML){
 			/* console.log("Color " + i +" not changed.");*/
 		} else {
@@ -71,6 +83,7 @@ function UpdateColors(){
 		}
 	}
 }
+
 function CreateTheme(){
 	/*Name the theme*/
 	let text;

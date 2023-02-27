@@ -59,3 +59,5 @@
         var lstfile = document.getElementById('lstupload');
         console.log(lstfile)
     }
+// update colors on site load
+    UpdateColors()

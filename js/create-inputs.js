@@ -5,11 +5,12 @@ function CreateInputs(){
         // its time for the input!!!
         var input = document.createElement("input");
         // <input class="ThemeColor" type="color" onchange="UpdateColors()" id="col[i]picker" value="[default value]">
-        input.class = "ThemeColor";
+        input.className = "ThemeColor";
         input.type = "color";
-        input.onChange = "UpdateColors()";
         input.id = "col" + i + "picker";
         input.value = "#000000"
+        input.setAttribute("onchange", "UpdateColors()");
+
         //and now for the span (!!)
         var span = document.createElement("span");
         //<span id="col[x]text">C0ACE1</span>

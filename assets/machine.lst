@@ -1,0 +1,34 @@
+{
+  "id": 971885,
+  "name": "machine",
+  "gui": "94d8db",
+  "bg": "212121",
+  "players": [
+    "e57373",
+    "64b5f6",
+    "81c784",
+    "ffb74d"
+  ],
+  "objs": [
+    "c0ace1",
+    "f17bb8",
+    "2f426d",
+    "1b1b1c",
+    "efebef",
+    "efebef",
+    "efebef",
+    "efebef",
+    "efebef"
+  ],
+  "bgs": [
+    "94d8db",
+    "e57373",
+    "d8ffe0",
+    "f1ffc4",
+    "fefec0",
+    "f2c7b7",
+    "f2c7b7",
+    "f2c7b7",
+    "f2c7b7"
+  ]
+}

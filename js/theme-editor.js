@@ -31,32 +31,6 @@ function RefreshColor(group,num){
     console.log("Color " + group + num + " set to " + col + "!")
 }
 
-
-/* (original function to) update the colors !! */
-//This isn't as good as the new one because it isn't nearly as flexible
-function UpdateColors(){
-        // ready the canvas
-        var canvas = document.getElementById("themePreview");
-        var ctx = canvas.getContext("2d");
-        
-        /* Using the magic of iteration we can go through each theme input and update their respective values on the page*/
-        for (let i = 1; i < 25; i++) {
-            var col = document.getElementById("col" +i +"picker").value;
-            //apply new color
-            ctx.fillStyle = col;
-            // fill rectangle based on iteration
-            console.log("Color " + i + " added at " + (i-1)*25)
-            ctx.fillRect((i-1)*25,0,25,25);
-            //make colors better
-            var col = col.replace("#","")		
-            if (col == document.getElementById("col" +i + "text").innerHTML){
-                /* console.log("Color " + i +" not changed.");*/
-            } else {
-                console.log("Color " + i +" set to " + col);
-                document.getElementById("col" +i + "text").innerHTML = col;
-            }
-        }
-    }
 //make the theme! woohoo!    
 function CreateTheme(){
         /*Name the theme*/

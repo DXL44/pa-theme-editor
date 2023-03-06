@@ -1,42 +1,10 @@
 	/* all of the code here is probably really bad i'm sorry lmao */
 // ALRIGHT NERDS. its time to put together the theme file
-const themeStorage = {
-    "id": 971885,
-    "name": "machine",
-    "gui": "94d8db",
-    "bg": "212121",
-    "players": [
-      "e57373",
-      "64b5f6",
-      "81c784",
-      "ffb74d"
-    ],
-    "objs": [
-      "c0ace1",
-      "f17bb8",
-      "2f426d",
-      "1b1b1c",
-      "efebef",
-      "efebef",
-      "efebef",
-      "efebef",
-      "efebef"
-    ],
-    "bgs": [
-      "94d8db",
-      "e57373",
-      "d8ffe0",
-      "f1ffc4",
-      "fefec0",
-      "f2c7b7",
-      "f2c7b7",
-      "f2c7b7",
-      "f2c7b7"
-    ]
-  }
+
 //Its time to update the colors but be WAY COOLER
 //COLOR IDS will be in this format: [group][number]. 
 //COLOR GROUPS: gui, bg, players, objs, bgs (aka the groups in the uh... uh the )
+
 function RefreshColor(group,num){
     var col = document.getElementById(group + num).value;
     //Pull the ol' switcheroo based on what the color's group is

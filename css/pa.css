@@ -14,10 +14,7 @@ display:none;
 padding-left:15px;
 }
 /*mainpage info*/
-.mpInfo{
-    transition: opacity 0.5s,
-        opacity:0;
-}
+
 /*line boreders*/
 .PABorder{
 border-top: 3px dashed #ffffff;
@@ -27,6 +24,9 @@ color: rgba(0,0,0,0)
 /*headings*/
 h3{
     font-weight:normal;
+}
+#EditorStuff{
+    display:none;
 }
 /*INPUT*/
 /*Make any buttons look like PA ingame buttons.*/
@@ -54,4 +54,8 @@ button:hover{
     height:25px;
     border:none;
     right:5px;
+}
+
+#storage {
+    display:none;
 }

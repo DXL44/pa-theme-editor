@@ -83,8 +83,17 @@ function CreateInputs(count,group,place){
 }
 
 //Create inputs on site load
-CreateInputs(1,"gui","base")
-CreateInputs(1,"bg","base")
-CreateInputs(4,"players","players")
-CreateInputs(9,"objs","objects")
-CreateInputs(9,"bgs","bgobjects")
+function AssembleInputs(){
+  console.log("Inputs...assemble!!")
+  //make all headers visible
+document.getElementById("EditorStuff").style.display = "block";
+const inputThings = document.getElementsByClassName("hideOnLoad");
+for (let i = 0; i < inputThings.length; i++) {
+  inputThings[i].style.display = "none";
+}
+  CreateInputs(1,"gui","base")
+  CreateInputs(1,"bg","base")
+  CreateInputs(4,"players","players")
+  CreateInputs(9,"objs","objects")
+  CreateInputs(9,"bgs","bgobjects")
+}

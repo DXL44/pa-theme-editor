@@ -82,9 +82,40 @@ function download(filename, text){
         element.click();
         document.body.removeChild(element);
     }
-function loadTheme(){
-        var lstfile = document.getElementById('lstupload');
-        console.log(lstfile)
+function storeTheme(){
+    input = document.getElementById('themeupload');
+    let file = input.files[0]; 
+    let fileReader = new FileReader(); 
+    fileReader.readAsText(file); 
+    fileReader.onload = function() {
+        document.getElementById('storage').innerHTML = fileReader.result
+        //yeah, im storing it like that. you have full permission to mock me for this. i couldnt get anything else to work :(
+        document.getElementById('LoadButton').innerHTML = "LOAD THEME"
+        }; 
+    fileReader.onerror = function() {
+          alert(fileReader.error);
     }
-// update colors on site load
-//    UpdateColors()
+}
+function loadTheme() {
+    inputTheme = document.getElementById('storage').innerHTML 
+    if (inputTheme == ""){
+        console.log("Loading default theme...")
+        AssembleInputs()
+        return
+    } else {
+        inputTheme = JSON.parse(inputTheme)
+        themeStorage.gui = inputTheme.gui
+        themeStorage.bg = inputTheme.bg
+        for (let i = 0; i < 4; i++) {
+        themeStorage.players[i] = inputTheme.players[i]
+        }
+        for (let i = 0; i < 9; i++) {
+            themeStorage.objs[i] = inputTheme.objs[i]
+        }
+        for (let i = 0; i < 9; i++) {
+            themeStorage.bgs[i] = inputTheme.bgs[i]
+        }
+        AssembleInputs()
+    }
+}
+//load the theme

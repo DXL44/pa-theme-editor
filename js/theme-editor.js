@@ -12,10 +12,10 @@ function RefreshColor(group,num){
     //Pull the ol' switcheroo based on what the color's group is
     switch (group){
         case "gui":
-            themeStorage.gui[num] = col
+            themeStorage.gui = col
             break;
         case "bg":
-            themeStorage.bg[num] = col
+            themeStorage.bg = col
             break;
         case "players":
             themeStorage.players[num] = col

@@ -7,6 +7,8 @@
 
 function RefreshColor(group,num){
     var col = document.getElementById(group + num).value;
+    //get that #### out of here
+    col = col.replace("#","");
     //Pull the ol' switcheroo based on what the color's group is
     switch (group){
         case "gui":
@@ -55,8 +57,8 @@ function UpdateColors(){
             }
         }
     }
-    
-    function CreateTheme(){
+//make the theme! woohoo!    
+function CreateTheme(){
         /*Name the theme*/
         let text;
           let themename = prompt("Name your theme:",);
@@ -64,22 +66,14 @@ function UpdateColors(){
             console.log("Invalid theme name - cancelled");
             return
         }
-        /*put it together*/
-        var theme = {
-            /*In Project Arrhythmia, theme IDS are actually just random numbers with no significance whatsoever*/
-        "id":Math.round(Math.random()*1000000),
-            /* Now for the fun part of assembling the file. This could be done better but it isnt as bad as before at least*/
-        "name":themename,
-        "gui":(document.getElementById("col1text").innerHTML),
-        "bg":(document.getElementById("col2text").innerHTML),
-        "players":[(document.getElementById("col3text").innerHTML),(document.getElementById("col4text").innerHTML),(document.getElementById("col5text").innerHTML),(document.getElementById("col6text").innerHTML)],
-        "objs":[(document.getElementById("col7text").innerHTML),(document.getElementById("col8text").innerHTML),(document.getElementById("col9text").innerHTML),(document.getElementById("col10text").innerHTML),(document.getElementById("col11text").innerHTML),(document.getElementById("col12text").innerHTML),(document.getElementById("col13text").innerHTML),(document.getElementById("col14text").innerHTML),(document.getElementById("col15text").innerHTML)],
-        "bgs":[(document.getElementById("col16text").innerHTML),(document.getElementById("col17text").innerHTML),(document.getElementById("col18text").innerHTML),(document.getElementById("col19text").innerHTML),(document.getElementById("col20text").innerHTML),(document.getElementById("col21text").innerHTML),(document.getElementById("col22text").innerHTML),(document.getElementById("col23text").innerHTML),(document.getElementById("col24text").innerHTML)]};
-        var themeJSON = JSON.stringify(theme);
+        themeStorage.name = themename
+        /*In Project Arrhythmia, theme IDS are actually just random numbers with no significance whatsoever*/
+        themeStorage.id = Math.round(Math.random()*1000000);
+        var themeJSON = JSON.stringify(themeStorage);
         /*Now download it*/
         download(themename + ".lst", themeJSON)
     } 
-    function download(filename, text){
+function download(filename, text){
         var element = document.createElement('a');
         element.setAttribute('href','data:text/plain;charset=utf-8,' + encodeURIComponent(text));
         element.setAttribute('download',filename);
@@ -88,9 +82,9 @@ function UpdateColors(){
         element.click();
         document.body.removeChild(element);
     }
-    function loadTheme(){
+function loadTheme(){
         var lstfile = document.getElementById('lstupload');
         console.log(lstfile)
     }
 // update colors on site load
-    UpdateColors()
+//    UpdateColors()

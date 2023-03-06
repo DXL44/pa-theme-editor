@@ -35,9 +35,9 @@ const themeStorage = {
   }
 //SO. You have 24 lines of 24 <input>s in your html code. What do you do? 
 //Answer: Try and probably fail to automate it. Let's go!!!!!!!
-function CreateInputs(from,to,group,sort){
+function CreateInputs(count,group,place){
     console.log("Creating inputs in group " + group + "...")
-    for (let i = 0; i < ((to-from)+1); i++) {
+    for (let i = 0; i < count; i++) {
         // its time for the input!!!
         var input = document.createElement("input");
         // <input class="ThemeColor" type="color" onchange="Refresh([group])" id="col1picker" value="#94D8DB">
@@ -47,10 +47,10 @@ function CreateInputs(from,to,group,sort){
         //switcheroo for the value!!
         switch (group){
             case "gui":
-                basecolor =  themeStorage.gui[i]
+                basecolor =  themeStorage.gui
                 break;
             case "bg":
-                basecolor = themeStorage.bg[i]
+                basecolor = themeStorage.bg
                 break;
             case "players":
                 basecolor =  themeStorage.players[i]
@@ -73,10 +73,18 @@ function CreateInputs(from,to,group,sort){
         //now we break it down 
         var br = document.createElement("br");
         // now...create the inputs. lets do this thing
-        document.body.appendChild(input);
-        document.body.appendChild(span);
-        document.body.appendChild(br);
+        append = document.getElementById(place)
+        append.appendChild(input);
+        append.appendChild(span);
+        append.appendChild(br);
         console.log(i + " - " + basecolor)
     }
     console.log("All done!")
 }
+
+//Create inputs on site load
+CreateInputs(1,"gui","base")
+CreateInputs(1,"bg","base")
+CreateInputs(4,"players","players")
+CreateInputs(9,"objs","objects")
+CreateInputs(9,"bgs","bgobjects")

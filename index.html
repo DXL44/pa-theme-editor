@@ -18,7 +18,7 @@
 <!--woooooooooooooooooooooo yeahhhhhhhhhhhhh!!!!!!!!!!!!!!-->
 <body>
 <h1>PA THEME EDITOR</h1>
-<p>Currently, the theme editor only supports creating themes. Editing existing themes, viewing prefabs, and a proper theme preview is planned :)</p>
+<p>Currently, it does not work.</p>
 <!--load a theme
 <input type="file"
        id=";lstupload" name="lstupload" accept=".lst">-->
@@ -26,33 +26,13 @@
 <!---THIS CODE IS AWFUL AND ABHORRENT AND BROKE INTO MY HOUSE AND KILLED ME-->
 <!--note: remake this to not use 20something <input>s and also make it so that the values are actually stored somewhere besides in the html-->
 <h3>Base</h3>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col1picker" value="#94D8DB"></input>		<span id="col1text">94D8DB</span><br>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col2picker" value="#212121"></input>		<span id="col2text">212121</span><br>
+<span id="base"></span>
 <h3>Players</h3>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col3picker" value="#E57373"></input>		<span id="col3text">E57373</span><br>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col4picker" value="#64B5F6"></input>		<span id="col4text">64B5F6</span><br>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col5picker" value="#81C784" ></input>		<span id="col5text">81C784</span><br>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col6picker" value="#FFB74D"></input>		<span id="col6text">FFB74D</span><br>
+<span id="players"></span>
 <h3>Objects</h3>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col7picker" value="#C0ACE1"></input>		<span id="col7text">C0ACE1</span><br>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col8picker" value="#F17BB8"></input>		<span id="col8text">F17BB8</span><br>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col9picker" value="#2F426D"></input>		<span id="col9text">2F426D</span><br>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col10picker" value="#1B1B1C"></input>		<span id="col10text">1B1B1C</span><br>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col11picker" value="#EFEBEF"></input>		<span id="col11text">EFEBEF</span><br>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col12picker" value="#EFEBEF"></input>		<span id="col12text">EFEBEF</span><br>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col13picker" value="#EFEBEF"></input>		<span id="col13text">EFEBEF</span><br>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col14picker" value="#EFEBEF"></input>		<span id="col14text">EFEBEF</span><br>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col15picker" value="#EFEBEF"></input>		<span id="col15text">EFEBEF</span><br>
+<span id="objects"></span>
 <h3>Background Objects</h3>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col16picker" value="#94D8DB"></input>		<span id="col16text">94D8DB</span><br>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col17picker" value="#E57373"></input>		<span id="col17text">D8FFE0</span><br>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col18picker" value="#D8FFE0"></input>		<span id="col18text">E0FFD5</span><br>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col19picker" value="#F1FFC4"></input>		<span id="col19text">F1FFC4</span><br>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col20picker" value="#FEFEC0"></input>		<span id="col20text">FEFEC0</span><br>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col21picker" value="#F2C7B7"></input>		<span id="col21text">F2C7B7</span><br>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col22picker" value="#F2C7B7"></input>		<span id="col22text">F2C7B7</span><br>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col23picker" value="#F2C7B7"></input>		<span id="col23text">F2C7B7</span><br>
-<input class="ThemeColor" type="color" onchange="UpdateColors()" id="col24picker" value="#F2C7B7"></input>		<span id="col24text">F2C7B7</span><br>
+<span id="bgobjects"></span>
 <button onclick="CreateTheme()">DOWNLOAD THEME</button><br>(Put it in the Themes folder and reload the level editor to use it!)
 </p>
 <h1>VERY COOL THEME PREVIEW</h1>

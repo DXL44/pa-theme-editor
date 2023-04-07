@@ -59,3 +59,13 @@ button:hover{
 #storage {
     display:none;
 }
+
+/* okay, lets make the title actually look good */
+#maintitle {
+    font-size:50px;
+    text-align:center;
+    font-weight:bold;
+}
+#smalltext {
+    font-size:30px;
+}

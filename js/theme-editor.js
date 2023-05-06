@@ -44,10 +44,18 @@ function CreateTheme(){
             alert("You need a proper theme name!")
             return
         }
+        // update all of the background colors if background hide is on 
+        if (bgcheck.checked == true) {
+            console.log("removing background")
+            for (let i = 0; i < 9; i++){ // all 9 theme colors
+                themeStorage.bgs[i] = themeStorage.bg;
+            } 
+        }
         // chcek if theme display exists. if it does, use it. if it doesn't, don.t
         if (InpThemeDisplay == null || InpThemeDisplay == ""){
+            console.log("no theme display name - using that normal one")
             themeStorage.name = themename
-        } else {
+        } else { 
             themeStorage.name = InpThemeDisplay
         }
         /*In Project Arrhythmia, theme IDS are actually just random numbers with no significance whatsoever*/
@@ -114,14 +122,43 @@ function loadTheme() {
 //hide background
 
 function hideBackground() {
+    bgcheck = document.getElementById("hideBGs")
+    if (bgcheck.checked == true) {
+        console.log("gaming");
+        document.getElementById("bgobjects").style.opacity = 0.15
+        const bgob = document.getElementsByClassName("bgscolor");
+        for (let i = 0; i < bgob.length; i++) {
+            bgob[i].setAttribute("disabled", "true")
+        }
+        //set inputs as inactive
+    } else {
+        console.log("gaming 2");
+        document.getElementById("bgobjects").style.opacity = 1;
+        //set inputs as active
+        const bgob2 = document.getElementsByClassName("bgscolor");
+        for (let i = 0; i < bgob2.length; i++) {
+            bgob2[i].removeAttribute("disabled")
+        }
+    }
+    /* no wait this is actually REALLY STUPID PLEASE REWORK THIS
+    -ok so here's the problem this overwrites background files 
+    -we need it to just remove them from the output
+    -so that means changing the function to download themes
+    -just make this change transparency
     // make the check the check
     bgcheck = document.getElementById("hideBGs")
     if (bgcheck.checked == true) {
     for (let i = 0; i < 9; i++){ // all 9 theme colors
-    themeStorage.bgs[i] = themeStorage.bg // set them to the theme color
-    RefreshColor("bgs",i) // then reload those colors
+    themeStorage.bgs[i] = themeStorage.bg; // set them to the theme color
+    // now update
+    console.log("bgs" + i + "text")
+    document.getElementById("bgs" + i + "text").innerHTML = themeStorage.bg;
+    document.getElementById("bgs" + i + "text").innerHTML = themeStorage.bg;
+    document.getElementById("bgs" + i).setAttribute("value", "#" + themeStorage.bg);
+   // RefreshColor("bgs",i) // then reload those colors
     }
     } else {
     console.log("nah nvm")
     }
+    */
 }

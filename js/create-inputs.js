@@ -41,7 +41,7 @@ function CreateInputs(count,group,place){
         // its time for the input!!!
         var input = document.createElement("input");
         // <input class="ThemeColor" type="color" onchange="Refresh([group])" id="col1picker" value="#94D8DB">
-        input.className = "ThemeColor";
+        input.classList.add("ThemeColor",group + "color");
         input.type = "color";
         input.id = group + i;
         //switcheroo for the value!!

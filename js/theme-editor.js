@@ -4,6 +4,7 @@
 //Its time to update the colors but be WAY COOLER
 //COLOR IDS will be in this format: [group][number]. 
 //COLOR GROUPS: gui, bg, players, objs, bgs (aka the groups in the uh... uh the )
+let inputTheme = null // declare input theme variable
 
 function RefreshColor(group,num){
     var col = document.getElementById(group + num).value;
@@ -85,8 +86,7 @@ function storeTheme(){
     let fileReader = new FileReader(); 
     fileReader.readAsText(file); 
     fileReader.onload = function() {
-        document.getElementById('storage').innerHTML = fileReader.result
-        //yeah, im storing it like that. you have full permission to mock me for this. i couldnt get anything else to work :(
+        inputTheme = fileReader.result
         document.getElementById('LoadButton').innerHTML = "LOAD THEME"
         }; 
     fileReader.onerror = function() {
@@ -94,8 +94,7 @@ function storeTheme(){
     }
 }
 function loadTheme() {
-    inputTheme = document.getElementById('storage').innerHTML 
-    if (inputTheme == ""){
+    if (inputTheme == null){
         console.log("Loading default theme...")
         AssembleInputs()
         return

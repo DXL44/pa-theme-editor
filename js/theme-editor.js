@@ -6,11 +6,8 @@
 //COLOR GROUPS: gui, bg, players, objs, bgs (aka the groups in the uh... uh the )
 let inputTheme = null // declare input theme variable
 
-function RefreshColor(group,num){
-    var col = document.getElementById(group + num).value;
-    //get that #### out of here
-    col = col.replace("#","");
-    //Pull the ol' switcheroo based on what the color's group is
+function RefreshColor(group,num){ // Update color in JSON and on the page
+    const col = document.getElementById(group + num).value.replace("#","");//PA theme files don't store the # in the hex code
     switch (group){
         case "gui":
             themeStorage.gui = col
@@ -29,15 +26,15 @@ function RefreshColor(group,num){
             break;
     }
     document.getElementById(group + num + "text").innerHTML = col;
-    console.log("Color " + group + num + " set to " + col + "!")
+    console.log(`Color ${group} ${num} set to ${col}!`)
 }
 
-//make the theme! woohoo!    
+   
 function CreateTheme(){
-    //Check what all of these are
+    //Get theme values
     InpThemeDisplay = document.getElementById("InpThemeDisplay").value
     InpThemeID = document.getElementById("InpThemeID").value
-        /*Name the theme*/
+        // Name the theme
         let text;
           let themename = document.getElementById("InpThemeName").value; 
           if (themename == null || themename == "") {
@@ -45,34 +42,34 @@ function CreateTheme(){
             alert("You need a proper theme name!")
             return
         }
-        // update all of the background colors if background hide is on 
-        if (bgcheck.checked == true) {
-            console.log("removing background")
+        // Update all of the background colors if background hide is on 
+        if (document.getElementById("hideBGs").checked == true) {
+            console.log("Removing background...")
             for (let i = 0; i < 9; i++){ // all 9 theme colors
                 themeStorage.bgs[i] = themeStorage.bg;
             } 
         }
-        // chcek if theme display exists. if it does, use it. if it doesn't, don.t
+        // Check if a display name exists - use if it does
         if (InpThemeDisplay == null || InpThemeDisplay == ""){
-            console.log("no theme display name - using that normal one")
+            console.log("No theme display name - using file name!")
             themeStorage.name = themename
         } else { 
             themeStorage.name = InpThemeDisplay
         }
-        /*In Project Arrhythmia, theme IDS are actually just random numbers with no significance whatsoever*/
+        // PA theme IDS are actually just random numbers with no significance whatsoever
         //we need to check if it's a number we can use (is an actual number, is whole)
         if (InpThemeID == null || InpThemeID == "" || isNaN(InpThemeID) == true || (InpThemeID - Math.floor(InpThemeID)) !== 0){
-            console.log("No valid theme ID, using random");
+            console.log("Invalid theme ID, using random (theme ID must be a whole number!)");
             themeStorage.id = Math.round(Math.random()*1000000);
         } else {
             themeStorage.id = InpThemeID;
         }
-        var themeJSON = JSON.stringify(themeStorage);
+
         /*Now download it*/
-        download(themename + ".lst", themeJSON);
+        download(`${themename}.lst`, JSON.stringify(themeStorage));
     } 
 function download(filename, text){
-        var element = document.createElement('a');
+        const element = document.createElement('a');
         element.setAttribute('href','data:text/plain;charset=utf-8,' + encodeURIComponent(text));
         element.setAttribute('download',filename);
         element.style.display = 'none';

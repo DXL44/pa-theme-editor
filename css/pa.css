@@ -41,7 +41,7 @@ text-transform:uppercase;
 }
 /*Now make it change color.*/
 button {
-    background-color:#212121;
+    background-color:#3b3b3b;
     color:white;
 }
 button:hover{
@@ -66,6 +66,40 @@ button:hover{
     text-align:center;
     font-weight:bold;
 }
-#smalltext {
+.smalltext {
     font-size:30px;
+}
+
+#filetypeMenu
+{
+    text-align:center;
+}
+.flex
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /*flex-wrap: wrap;*/    
+
+}
+
+.fileMenuItem
+{
+    width:75%;
+    text-align:center;
+    background-color: #7520208a;
+    margin:10px;
+}
+
+.wideButton
+{
+    width:75%;
+    text-align: center;
+    padding:10px;
+}
+
+#themeupload
+{
+    display:none;
 }

@@ -72,11 +72,27 @@ function CreateInputs(count,group,place){
         span.innerHTML = basecolor
         //now we break it down 
         var br = document.createElement("br");
-        // now...create the inputs. lets do this thing
-        append = document.getElementById(place)
+
+        // NEW THING: create a button 
+        // <button onclick="window.alert('balls')" class="colorPick"></button>
+
+
+
+        var button = document.createElement("button")
+        button.setAttribute("onClick", `document.getElementById('${group + i}').click()`)
+        button.classList.add("colorPick");
+        button.id = group + i + "button";
+        button.setAttribute("style",`background-color:#${basecolor};`)
+        //div to put everything in
+        append = document.createElement("div")
+        append.classList.add("colorItem")
         append.appendChild(input);
+        append.appendChild(button);
         append.appendChild(span);
-        append.appendChild(br);
+
+        // now...create the inputs. lets do this thing
+        document.getElementById(place).append(append)
+        
         console.log(i + " - " + basecolor)
     }
     console.log("All done!")

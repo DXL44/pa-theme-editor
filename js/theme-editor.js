@@ -26,6 +26,7 @@ function RefreshColor(group,num){ // Update color in JSON and on the page
             break;
     }
     document.getElementById(group + num + "text").innerHTML = col;
+    document.getElementById(group + num + "button").setAttribute("style",`background-color:#${col};`);
     console.log(`Color ${group} ${num} set to ${col}!`)
 }
 
@@ -136,25 +137,4 @@ function hideBackground() {
             bgob2[i].removeAttribute("disabled")
         }
     }
-    /* no wait this is actually REALLY STUPID PLEASE REWORK THIS
-    -ok so here's the problem this overwrites background files 
-    -we need it to just remove them from the output
-    -so that means changing the function to download themes
-    -just make this change transparency
-    // make the check the check
-    bgcheck = document.getElementById("hideBGs")
-    if (bgcheck.checked == true) {
-    for (let i = 0; i < 9; i++){ // all 9 theme colors
-    themeStorage.bgs[i] = themeStorage.bg; // set them to the theme color
-    // now update
-    console.log("bgs" + i + "text")
-    document.getElementById("bgs" + i + "text").innerHTML = themeStorage.bg;
-    document.getElementById("bgs" + i + "text").innerHTML = themeStorage.bg;
-    document.getElementById("bgs" + i).setAttribute("value", "#" + themeStorage.bg);
-   // RefreshColor("bgs",i) // then reload those colors
-    }
-    } else {
-    console.log("nah nvm")
-    }
-    */
 }

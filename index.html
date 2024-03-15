@@ -9,10 +9,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> -->
 <link rel="stylesheet" href="css/pa.css">
 <link rel="stylesheet" href="css/alpha-ui.css">
-
-<div class="radio-container"><label style="background: rgb(7, 0, 14);" id="radio-color-1" class="color"><input name="color" class="color" type="radio" style="" value="0" onclick="for (i=0;i<this.parentElement.parentElement.children.length;i++) {this.parentElement.parentElement.children[i].classList.remove('focused');};this.parentElement.classList.add('focused')"><span class="red color" style=""></span></label><label style="background: rgb(7, 0, 14);" class="color focused" id="radio-color-2"><input name="color" class="color" type="radio" style="" value="1" for="" onclick="for (i=0;i<this.parentElement.parentElement.children.length;i++) {this.parentElement.parentElement.children[i].classList.remove('focused');};this.parentElement.classList.add('focused')"><span style="" class="color"></span></label><label style="background: rgb(7, 0, 14);" class="color" id="radio-color-3"><input name="color" class="color" type="radio" style="" value="2" onclick="for (i=0;i<this.parentElement.parentElement.children.length;i++) {this.parentElement.parentElement.children[i].classList.remove('focused');};this.parentElement.classList.add('focused')"><span class="red color" style=""></span></label><label style="background: rgb(7, 0, 14);" class="color" id="radio-color-4"><input name="color" class="color" type="radio" style="" value="3" onclick="for (i=0;i<this.parentElement.parentElement.children.length;i++) {this.parentElement.parentElement.children[i].classList.remove('focused');};this.parentElement.classList.add('focused')"><span class="red color" style=""></span></label><label style="background: rgb(7, 0, 14);" class="color" id="radio-color-5"><input name="color" class="color" type="radio" style="" value="4" onclick="for (i=0;i<this.parentElement.parentElement.children.length;i++) {this.parentElement.parentElement.children[i].classList.remove('focused');};this.parentElement.classList.add('focused')"><span class="red color" style=""></span></label><label style="background: rgb(7, 0, 14);" class="color" id="radio-color-6"><input name="color" class="color" type="radio" style="" value="5" onclick="for (i=0;i<this.parentElement.parentElement.children.length;i++) {this.parentElement.parentElement.children[i].classList.remove('focused');};this.parentElement.classList.add('focused')"><span class="red color" style=""></span></label><label style="background: rgb(7, 0, 14);" class="color" id="radio-color-7"><input name="color" class="color" type="radio" style="" value="6" onclick="for (i=0;i<this.parentElement.parentElement.children.length;i++) {this.parentElement.parentElement.children[i].classList.remove('focused');};this.parentElement.classList.add('focused')"><span class="red color" style=""></span></label><label style="background: rgb(7, 0, 14);" class="color" id="radio-color-8"><input name="color" class="color" type="radio" style="" value="7" onclick="for (i=0;i<this.parentElement.parentElement.children.length;i++) {this.parentElement.parentElement.children[i].classList.remove('focused');};this.parentElement.classList.add('focused')"><span class="red color" style=""></span></label><label style="background: rgb(0, 0, 0);" class="color" id="radio-color-9"><input name="color" class="color" type="radio" style="" value="8" onclick="for (i=0;i<this.parentElement.parentElement.children.length;i++) {this.parentElement.parentElement.children[i].classList.remove('focused');};this.parentElement.classList.add('focused')"><span class="red color" style=""></span></label></div>
-
-
 <!--embed time-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta content="Project Arrhythmia Theme Editor" property="og:title" />
@@ -29,8 +25,9 @@
 <div id="maintitle">
 <span class="smalltext">PROJECT ARRHYTHMIA</span><br>
 <span id="bigtext">THEME EDITOR</span>
+
+<p style="font-size:25%;">The LEAST useful Project Arrhythmia web tool!</p>
 </div>
-<p>The LEAST useful Project Arrhythmia web tool!</p>
 <div id="filetypeMenu" class="hideOnLoad">
 
 <!---<h1 class="smalltext">Choose File Type</h1>
@@ -45,6 +42,7 @@
        Support for this coming soon :)
 </div>
 </div>--->
+
 
 <button class="wideButton" id="LoadButton" onClick="loadTheme()">Create New Theme</button>
 <input type="file" accept=".lst" id="themeupload" onChange="storeTheme(); loadTheme();">
@@ -65,8 +63,7 @@
               <h3>Objects</h3>
        </div>
        <div class="colorsGroup" id="bgobjects">
-       <h3>Background Objects</h3>
-              <input id="hideBGs" type="checkbox" onchange="hideBackground()"/>Hide background objects<br>
+       <h3><input id="hideBGs" type="checkbox" onchange="hideBackground()"/>Background Objects</h3>
        </div>
 </div>
 

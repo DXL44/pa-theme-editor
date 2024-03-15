@@ -24,6 +24,7 @@ color: rgba(0,0,0,0)
 /*headings*/
 h3{
     font-weight:normal;
+    margin:1px;
 }
 #EditorStuff{
     display:none;
@@ -111,3 +112,52 @@ button:hover{
     margin:15px;
     padding:15px;
 }
+
+.colorPick.colorPick
+{
+    /*background-color:blue;*/
+    width:25px;
+    height:25px; 
+    padding:0px;
+    margin:5px;
+    background-image: url("https://thevoidunknown.github.io/PA-Alpha-CSS/editor-icons/editor_gui_dropper.png") !important;
+background-size: 99% !important;
+background-position: center !important;
+}
+.ThemeColor
+{
+visibility:hidden;
+width:0px;
+height:0px;
+}
+
+.colorItem
+{
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+
+
+/* maybe put color + text combo inside of a div?
+
+<div style="
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+">
+
+be sure to figure out a way so that it doesnt squish itself to death...
+*/
+
+/* colorsGroup stuff? to try and make this responsive?
+    min-width: 15%;
+    max-width: 33%;
+    margin: 15px;
+    padding: 15px;
+    flex-basis: initial;
+
+*/

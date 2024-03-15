@@ -74,15 +74,7 @@ button:hover{
 {
     text-align:center;
 }
-.flex
-{
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    /*flex-wrap: wrap;*/    
 
-}
 
 .fileMenuItem
 {
@@ -97,9 +89,25 @@ button:hover{
     width:75%;
     text-align: center;
     padding:10px;
+    margin:5px;
 }
 
 #themeupload
 {
     display:none;
+}
+
+.flex
+{
+    display:flex;
+    flex-direction: row;
+
+}
+
+.colorsGroup
+{
+    background-color: #5c5c5c1c;
+    width:33%;
+    margin:15px;
+    padding:15px;
 }

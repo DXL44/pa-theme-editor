@@ -45,7 +45,7 @@
 
 
 <button class="wideButton" id="LoadButton" onClick="loadTheme()">Create New Theme</button>
-<input type="file" accept=".lst" id="themeupload" onChange="storeTheme(); loadTheme();">
+<input type="file" accept=".lst" id="themeupload" onChange="storeTheme(); setTimeout(function(){loadTheme();}, 50);"> <!---somethings wrong here thats preventing loading-->
 <button class=" wideButton" id="LoadButton" onClick="document.getElementById('themeupload').click();">Load Theme File</button>
 </div>
 
@@ -70,7 +70,7 @@
        <h3>Theme Info</h3>
 File Name: <input id="InpThemeName" /><br>
 Theme Display Name:<input id="InpThemeDisplay" /><br>
-Theme ID:<input id="InpThemeID" /><br>
+Theme ID (leave blank for random):<input id="InpThemeID" /><br>
 <button onclick="CreateTheme()">DOWNLOAD THEME</button><br>(Put it in the Themes folder and reload the level editor to use it!)
 </span>
 <!--<canvas id="themePreview" witdh="750" height="100"></canvas>-->

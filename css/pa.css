@@ -2,10 +2,6 @@
 body {
 background-color:#212121;
 color:#E0E0E0;
-font-family:Inconsolata;
-}
-p {
-margin-left:30px;
 }
 
 .mpInfo{
@@ -140,7 +136,10 @@ height:0px;
     align-items: center;
 }
 
-
+input
+{
+    color:black;
+}
 
 /* maybe put color + text combo inside of a div?
 

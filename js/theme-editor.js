@@ -85,7 +85,6 @@ function storeTheme(){
     fileReader.readAsText(file); 
     fileReader.onload = function() {
         inputTheme = fileReader.result
-        document.getElementById('LoadButton').innerHTML = "LOAD THEME"
         }; 
     fileReader.onerror = function() {
           alert(fileReader.error);
@@ -95,6 +94,8 @@ function loadTheme() {
     if (inputTheme == null){
         console.log("Loading default theme...")
         AssembleInputs()
+        document.getElementById("InpThemeName").setAttribute("value", "theme");
+        document.getElementById("InpThemeDisplay").setAttribute("value", "Theme");
         return
     } else {
         inputTheme = JSON.parse(inputTheme)
